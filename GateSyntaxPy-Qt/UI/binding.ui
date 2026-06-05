@@ -1,0 +1,41 @@
+// binding.ui — two-way data binding demo
+/PERSON_NAME   :: ""\
+/PERSON_CITY   :: ""\
+/PERSON_ACTIVE :: FALSE\
+/BIND_COUNTER  :: 0\
+
+SCROLL BindScroll :: IN [TabBinding]
+COL    BindCol    :: IN [BindScroll]
+
+LABEL BindH1      :: IN [BindCol] :: TEXT "Two-Way Data Binding"  :: STYLE "h1"
+LABEL BindCaption :: IN [BindCol] :: TEXT "Edit any field — the live preview updates instantly." :: STYLE "muted"
+
+RULE BindSep0 :: IN [BindCol]
+
+// ── Input fields ──────────────────────────────────────────────────────────────
+LABEL NameLabel :: IN [BindCol] :: TEXT "Name"
+INPUT NameInput :: IN [BindCol] :: HINT "Enter your name…" :: ON CHANGE /PERSON_NAME :: [NameInput]\
+
+LABEL CityLabel :: IN [BindCol] :: TEXT "City"
+INPUT CityInput :: IN [BindCol] :: HINT "Enter your city…" :: ON CHANGE /PERSON_CITY :: [CityInput]\
+
+LABEL ActiveLabel  :: IN [BindCol] :: TEXT "Active"
+CHECK ActiveCheck  :: IN [BindCol] :: LABEL "Mark as active" :: VALUE [PERSON_ACTIVE] :: ON CHANGE /PERSON_ACTIVE :: [ActiveCheck]\
+
+RULE BindSep1 :: IN [BindCol]
+
+// ── Live preview ──────────────────────────────────────────────────────────────
+LABEL PreviewH2 :: IN [BindCol] :: TEXT "Live Preview" :: STYLE "h2"
+LABEL PreviewName   :: IN [BindCol] :: TEXT "Name:   " + [PERSON_NAME]
+LABEL PreviewCity   :: IN [BindCol] :: TEXT "City:   " + [PERSON_CITY]
+LABEL PreviewActive :: IN [BindCol] :: TEXT "Active: " + [PERSON_ACTIVE]
+
+RULE BindSep2 :: IN [BindCol]
+
+// ── Counter ────────────────────────────────────────────────────────────────────
+LABEL CounterH2  :: IN [BindCol] :: TEXT "Counter" :: STYLE "h2"
+LABEL CounterVal :: IN [BindCol] :: TEXT "Count: " + [BIND_COUNTER]
+ROW CounterRow :: IN [BindCol]
+BUTTON BtnInc :: IN [CounterRow] :: LABEL " + " :: ON CLICK /BIND_COUNTER :: [BIND_COUNTER] + 1\
+BUTTON BtnDec :: IN [CounterRow] :: LABEL " − " :: ON CLICK /BIND_COUNTER :: [BIND_COUNTER] + -1\
+BUTTON BtnRst :: IN [CounterRow] :: LABEL "Reset" :: ON CLICK /BIND_COUNTER :: 0\

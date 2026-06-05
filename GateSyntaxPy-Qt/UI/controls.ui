@@ -1,0 +1,35 @@
+// controls.ui — reactive widgets
+/SLIDER_VAL :: 50\
+/CHECK_A    :: FALSE\
+/SWITCH_A   :: FALSE\
+
+SCROLL ControlsScroll :: IN [TabControls]
+COL    ControlsCol    :: IN [ControlsScroll]
+
+LABEL ControlsH1      :: IN [ControlsCol] :: TEXT "Controls Gallery"  :: STYLE "h1"
+LABEL ControlsCaption :: IN [ControlsCol] :: TEXT "Sliders, progress bars, checkboxes, toggles — all reactive." :: STYLE "muted"
+
+// ── Slider ↔ Progress live pair ─────────────────────────────────────────────
+LABEL SliderH2   :: IN [ControlsCol] :: TEXT "Slider → Progress"  :: STYLE "h2"
+LABEL SliderInfo :: IN [ControlsCol] :: TEXT "Value: " + [SLIDER_VAL]
+SLIDER   DemoSlider :: IN [ControlsCol] :: MIN 0 :: MAX 100 :: VALUE [SLIDER_VAL] :: ON CHANGE /SLIDER_VAL :: [DemoSlider]\
+PROGRESS DemoBar    :: IN [ControlsCol] :: VALUE [SLIDER_VAL]    :: MAX 100
+
+ROW ResetRow :: IN [ControlsCol]
+BUTTON BtnReset :: IN [ResetRow] :: LABEL "  0%  " :: ON CLICK /SLIDER_VAL :: 0\
+BUTTON BtnHalf  :: IN [ResetRow] :: LABEL " 50%  " :: ON CLICK /SLIDER_VAL :: 50\
+BUTTON BtnFull  :: IN [ResetRow] :: LABEL " 100% " :: ON CLICK /SLIDER_VAL :: 100\
+
+RULE SepA :: IN [ControlsCol]
+
+// ── Checkbox ─────────────────────────────────────────────────────────────────
+LABEL CheckH2   :: IN [ControlsCol] :: TEXT "Checkbox"  :: STYLE "h2"
+LABEL CheckInfo :: IN [ControlsCol] :: TEXT "Enabled: " + [CHECK_A]
+CHECK DemoCheck :: IN [ControlsCol] :: LABEL "Enable feature A" :: VALUE [CHECK_A] :: ON CHANGE /CHECK_A :: [DemoCheck]\
+
+RULE SepB :: IN [ControlsCol]
+
+// ── Toggle switch ─────────────────────────────────────────────────────────────
+LABEL SwitchH2   :: IN [ControlsCol] :: TEXT "Toggle"  :: STYLE "h2"
+LABEL SwitchInfo :: IN [ControlsCol] :: TEXT "Active: " + [SWITCH_A]
+TOGGLE DemoSwitch :: IN [ControlsCol] :: VALUE [SWITCH_A] :: ON CHANGE /SWITCH_A :: [DemoSwitch]\

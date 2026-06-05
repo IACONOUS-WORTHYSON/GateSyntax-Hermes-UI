@@ -1,0 +1,35 @@
+// commands.ui — actions, async, gauge
+/ASYNC_PROGRESS :: 0\
+/ASYNC_STATUS   :: "Idle"\
+/GAUGE_VAL      :: 30\
+
+SCROLL CmdScroll :: IN [TabCommands]
+COL    CmdCol    :: IN [CmdScroll]
+
+LABEL CmdH1      :: IN [CmdCol] :: TEXT "Actions & Async"                                                               :: STYLE "h1"
+LABEL CmdCaption :: IN [CmdCol] :: TEXT "ON CLICK dispatches actions. The async task runs via setInterval in the browser." :: STYLE "muted"
+
+RULE CmdSep0 :: IN [CmdCol]
+
+LABEL NotifyH2 :: IN [CmdCol] :: TEXT "Notifications" :: STYLE "h2"
+ROW NotifyRow :: IN [CmdCol]
+BUTTON BtnInfo    :: IN [NotifyRow] :: LABEL " Info "    :: ON CLICK /DIALOG_MSG_RESULT :: "MSG_INFO"\
+BUTTON BtnWarn    :: IN [NotifyRow] :: LABEL " Warn "    :: ON CLICK /DIALOG_MSG_RESULT :: "MSG_WARN"\
+BUTTON BtnError   :: IN [NotifyRow] :: LABEL " Error "   :: ON CLICK /DIALOG_MSG_RESULT :: "MSG_ERROR"\
+BUTTON BtnConfirm :: IN [NotifyRow] :: LABEL " Confirm " :: ON CLICK /DIALOG_MSG_RESULT :: "MSG_CONFIRM"\
+LABEL MsgResult :: IN [CmdCol] :: TEXT "Last result: " + [DIALOG_MSG_RESULT]
+
+RULE CmdSep1 :: IN [CmdCol]
+
+LABEL AsyncH2     :: IN [CmdCol] :: TEXT "Async Worker"  :: STYLE "h2"
+LABEL AsyncStatus :: IN [CmdCol] :: TEXT "Status: " + [ASYNC_STATUS]
+BUTTON BtnAsync   :: IN [CmdCol] :: LABEL "  Start async task  " :: ON CLICK /ASYNC_STATUS :: "ASYNC_START"\
+PROGRESS AsyncBar :: IN [CmdCol] :: VALUE [ASYNC_PROGRESS] :: MAX 100
+LABEL AsyncPct    :: IN [CmdCol] :: TEXT [ASYNC_PROGRESS] + " / 100"
+
+RULE CmdSep2 :: IN [CmdCol]
+
+LABEL GaugeH2     :: IN [CmdCol] :: TEXT "Custom Gauge"  :: STYLE "h2"
+LABEL GaugeInfo   :: IN [CmdCol] :: TEXT "Drag the slider to drive the gauge."
+SLIDER GaugeSlider :: IN [CmdCol] :: MIN 0 :: MAX 100 :: VALUE [GAUGE_VAL] :: ON CHANGE /GAUGE_VAL :: [GaugeSlider]\
+GAUGE  DemoGauge1  :: IN [CmdCol] :: VALUE [GAUGE_VAL] :: MAX 100 :: GAUGELABEL "System Load" :: STROKE "bright_blue"

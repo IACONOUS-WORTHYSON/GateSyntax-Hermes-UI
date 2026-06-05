@@ -1,0 +1,21 @@
+// documents.ui — Documents tab
+SCROLL DocumentsScroll :: IN [TabDocuments]
+COL DocumentsCol :: IN [DocumentsScroll] :: MARGIN "14"
+LABEL DocumentsH1 :: IN [DocumentsCol] :: TEXT "Documents" :: STYLE "H1"
+LABEL DocumentsCaption :: IN [DocumentsCol] :: TEXT "FlowDocument with Paragraph, Run, Hyperlink, List, Table — plus RichTextBox." :: STYLE "Caption"
+UNIFORMGRID DocumentsUG :: IN [DocumentsCol] :: COLS 2
+PANEL FlowCard :: IN [DocumentsUG] :: STYLE "Card.Border"
+COL FlowCardCol :: IN [FlowCard]
+LABEL FlowH2 :: IN [FlowCardCol] :: TEXT "FlowDocumentReader" :: STYLE "H2"
+FLOWDOCREADER FlowDocViewer :: IN [FlowCardCol] :: HEIGHT 400
+PANEL RtbCard :: IN [DocumentsUG] :: STYLE "Card.Border"
+COL RtbCardCol :: IN [RtbCard]
+LABEL RtbH2 :: IN [RtbCardCol] :: TEXT "RichTextBox (editable)" :: STYLE "H2"
+TOOLBAR RtbToolbar :: IN [RtbCardCol]
+BUTTON BtnBold :: IN [RtbToolbar] :: LABEL "B" :: WEIGHT "SemiBold"
+BUTTON BtnItalic :: IN [RtbToolbar] :: LABEL "I"
+BUTTON BtnUnderline :: IN [RtbToolbar] :: LABEL "U"
+SEPARATOR RtbSep :: IN [RtbToolbar]
+BUTTON BtnFontUp :: IN [RtbToolbar] :: LABEL "A+"
+BUTTON BtnFontDown :: IN [RtbToolbar] :: LABEL "A-"
+RICHTEXTBOX RtbMain :: IN [RtbCardCol] :: HEIGHT 320

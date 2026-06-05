@@ -1,0 +1,3 @@
+# Install ONE of the following:
+PyQt5>=5.15.0
+# PyQt6>=6.0.0

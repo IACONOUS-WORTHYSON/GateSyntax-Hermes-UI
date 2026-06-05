@@ -1,0 +1,30 @@
+// input.ui — Input + Ink tab
+SCROLL InputScroll :: IN [TabInput]
+COL InputCol :: IN [InputScroll] :: MARGIN "14"
+LABEL InputH1 :: IN [InputCol] :: TEXT "Input + Ink" :: STYLE "H1"
+LABEL InputCaption :: IN [InputCol] :: TEXT "Keyboard / mouse events, InkCanvas for stylus / touch, drag-and-drop between ListBoxes." :: STYLE "Caption"
+UNIFORMGRID InputGrid :: IN [InputCol] :: COLS 2
+PANEL MouseCard :: IN [InputGrid] :: STYLE "Card.Border"
+COL MouseCardCol :: IN [MouseCard]
+LABEL MouseH2 :: IN [MouseCardCol] :: TEXT "Mouse + Keyboard tracker" :: STYLE "H2"
+PANEL TrackArea :: IN [MouseCardCol] :: BG "#F1F5F9" :: HEIGHT 160
+LABEL TrackLabel :: IN [TrackArea] :: TEXT "Move the mouse / click / type here" :: COLOR "#475569"
+PANEL InkCard :: IN [InputGrid] :: STYLE "Card.Border"
+COL InkCardCol :: IN [InkCard]
+LABEL InkH2 :: IN [InkCardCol] :: TEXT "InkCanvas" :: STYLE "H2"
+ROW InkBtnRow :: IN [InkCardCol] :: MARGIN "0,4"
+BUTTON InkPenBtn :: IN [InkBtnRow] :: LABEL "Pen" :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /DIALOG_MSG_RESULT :: "Pen mode"
+BUTTON InkEraseBtn :: IN [InkBtnRow] :: LABEL "Erase" :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /DIALOG_MSG_RESULT :: "Erase mode"
+BUTTON InkClearBtn :: IN [InkBtnRow] :: LABEL "Clear" :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /DIALOG_MSG_RESULT :: "Cleared"
+INKCANVAS InkMain :: IN [InkCardCol] :: HEIGHT 160 :: BG "White"
+PANEL DragCard :: IN [InputCol] :: STYLE "Card.Border"
+COL DragCardCol :: IN [DragCard]
+LABEL DragH2 :: IN [DragCardCol] :: TEXT "Drag and drop between lists" :: STYLE "H2"
+UNIFORMGRID DragGrid :: IN [DragCardCol] :: COLS 2
+LIST SourceDragList :: IN [DragGrid] :: HEIGHT 160 :: MARGIN "6"
+ITEM DragApple :: IN [SourceDragList] :: LABEL "Apple"
+ITEM DragBanana :: IN [SourceDragList] :: LABEL "Banana"
+ITEM DragCherry :: IN [SourceDragList] :: LABEL "Cherry"
+ITEM DragDate :: IN [SourceDragList] :: LABEL "Date"
+ITEM DragElder :: IN [SourceDragList] :: LABEL "Elderberry"
+LIST TargetDragList :: IN [DragGrid] :: HEIGHT 160 :: MARGIN "6"

@@ -1,0 +1,3 @@
+// hello.ui
+
+WINDOW Root :: TITLE "Hello — GateSyntaxPy-Qt"

@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>GateSyntax</RootNamespace>
+    <AssemblyName>GateSyntax.Runtime</AssemblyName>
+    <LangVersion>13</LangVersion>
+    <!-- NuGet metadata -->
+    <PackageId>GateSyntax.Runtime</PackageId>
+    <Version>1.0.0</Version>
+    <Description>Declarative WPF UI runtime powered by .ui files</Description>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Exclude the demo app entry point from the library -->
+    <Compile Remove="App.xaml.cs"/>
+    <!-- Exclude App.xaml from WPF processing (it's the demo app's entry point) -->
+    <ApplicationDefinition Remove="App.xaml"/>
+    <Page Remove="App.xaml"/>
+    <!-- Theme bundled inside the DLL — not treated as a WPF Page -->
+    <Page Remove="Resources\Theme.xaml"/>
+    <EmbeddedResource Include="Resources\Theme.xaml"/>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>GateSyntax</RootNamespace>
+    <AssemblyName>GateSyntax</AssemblyName>
+    <LangVersion>13</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Runtime source lives in the library — exclude from this project -->
+    <Compile Remove="Runtime\**\*.cs"/>
+    <Compile Remove="GateSyntaxBuilder.cs"/>
+    <!-- Theme is embedded in the library DLL — not needed here as content -->
+    <Content Remove="Resources\Theme.xaml"/>
+    <Page Remove="Resources\Theme.xaml"/>
+    <!-- UI definition files copied alongside the exe -->
+    <Content Include="UI\**\*.ui" CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="GateSyntax.Runtime.csproj"/>
+  </ItemGroup>
+</Project>

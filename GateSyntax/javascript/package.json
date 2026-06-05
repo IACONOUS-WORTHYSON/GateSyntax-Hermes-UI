@@ -1,0 +1,21 @@
+{
+  "name": "gatesyntax-integrador",
+  "version": "1.0.0",
+  "description": "Domain-agnostic live-binding integrador for GateSyntax (vanilla JS / browser)",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": {
+      "import": "./index.js"
+    }
+  },
+  "files": ["index.js"],
+  "keywords": ["gatesyntax", "live-binding", "ui", "dom", "integrador"],
+  "engines": { "node": ">=18" },
+  "peerDependencies": {
+    "gatesyntax-webb": "*"
+  },
+  "peerDependenciesMeta": {
+    "gatesyntax-webb": { "optional": true }
+  }
+}

@@ -1,0 +1,202 @@
+/* GateSyntaxJava — JavaFX dark theme */
+
+.root {
+    -fx-background-color: #1a1a2e;
+    -fx-font-family: "Segoe UI", "Ubuntu", sans-serif;
+    -fx-font-size: 13px;
+}
+
+/* ── Typography ──────────────────────────────────────────────────────────── */
+
+.gs-label   { -fx-text-fill: #e0e0e0; -fx-padding: 2 0; }
+.gs-h1      { -fx-text-fill: #6688cc; -fx-font-size: 17px; -fx-font-weight: bold; -fx-padding: 6 0 4 0; }
+.gs-h2      { -fx-text-fill: #88aadd; -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 6 0 2 0; }
+.gs-muted   { -fx-text-fill: #888888; -fx-padding: 0 0 4 0; }
+
+/* ── Tab pane ────────────────────────────────────────────────────────────── */
+
+.tab-pane > .tab-header-area > .tab-header-background {
+    -fx-background-color: #22223a;
+    -fx-border-color: transparent transparent #44447a transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.tab-pane > .tab-header-area .tab {
+    -fx-background-color: transparent;
+    -fx-text-fill: #888;
+    -fx-padding: 7 18;
+    -fx-border-color: transparent;
+}
+
+.tab-pane > .tab-header-area .tab:selected {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: transparent transparent #6688cc transparent;
+    -fx-border-width: 0 0 2 0;
+}
+
+.tab-pane > .tab-header-area .tab:hover {
+    -fx-text-fill: #cccccc;
+    -fx-background-color: #2d2d50;
+}
+
+.tab-pane .tab-content-area {
+    -fx-background-color: #1a1a2e;
+    -fx-padding: 0;
+}
+
+/* ── Scroll pane ─────────────────────────────────────────────────────────── */
+
+.gs-scroll {
+    -fx-background-color: transparent;
+    -fx-padding: 12 16;
+}
+.gs-scroll > .viewport { -fx-background-color: transparent; }
+
+.scroll-bar { -fx-background-color: #1a1a2e; }
+.scroll-bar .thumb { -fx-background-color: #44447a; -fx-background-radius: 4; }
+.scroll-bar .thumb:hover { -fx-background-color: #6666aa; }
+.scroll-bar .track { -fx-background-color: transparent; }
+.scroll-bar .increment-button, .scroll-bar .decrement-button { -fx-padding: 0; -fx-pref-width: 8; }
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow { -fx-shape: ""; }
+
+/* ── Containers ──────────────────────────────────────────────────────────── */
+
+.gs-col  { -fx-background-color: transparent; }
+.gs-row  { -fx-background-color: transparent; -fx-alignment: CENTER_LEFT; }
+.gs-grid { -fx-background-color: transparent; }
+.gs-panel > .title { -fx-text-fill: #88aadd; -fx-font-weight: bold; }
+.gs-panel {
+    -fx-background-color: #22223a;
+    -fx-border-color: #44447a;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+/* ── Button ──────────────────────────────────────────────────────────────── */
+
+.gs-button {
+    -fx-background-color: #2e2e50;
+    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #44447a;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-border-width: 1;
+    -fx-padding: 5 14;
+    -fx-cursor: hand;
+}
+.gs-button:hover  { -fx-background-color: #3a3a6a; -fx-border-color: #6688cc; }
+.gs-button:pressed{ -fx-background-color: #4a4aaa; }
+.gs-button:disabled{ -fx-opacity: 0.4; }
+
+/* ── Text input ──────────────────────────────────────────────────────────── */
+
+.gs-input {
+    -fx-background-color: #22223a;
+    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #44447a;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-border-width: 1;
+    -fx-padding: 5 10;
+    -fx-prompt-text-fill: #555577;
+}
+.gs-input:focused { -fx-border-color: #6688cc; }
+
+/* ── Checkbox ────────────────────────────────────────────────────────────── */
+
+.gs-check { -fx-text-fill: #e0e0e0; }
+.gs-check .box {
+    -fx-background-color: #22223a;
+    -fx-border-color: #44447a;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+.gs-check:selected .box { -fx-background-color: #5577cc; -fx-border-color: #6688dd; }
+.gs-check:selected .mark { -fx-background-color: white; }
+
+/* ── Toggle button ───────────────────────────────────────────────────────── */
+
+.gs-toggle {
+    -fx-background-color: #2e2e50;
+    -fx-text-fill: #888;
+    -fx-border-color: #44447a;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 4 14;
+    -fx-min-width: 52;
+}
+.gs-toggle:selected {
+    -fx-background-color: #338844;
+    -fx-text-fill: white;
+    -fx-border-color: #44aa55;
+}
+
+/* ── Progress bar ────────────────────────────────────────────────────────── */
+
+.gs-progress { -fx-pref-height: 18; }
+.gs-progress .bar {
+    -fx-background-color: linear-gradient(to right, #4466cc, #6688ee);
+    -fx-background-radius: 3;
+    -fx-padding: 2;
+}
+.gs-progress .track {
+    -fx-background-color: #22223a;
+    -fx-border-color: #44447a;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-border-width: 1;
+}
+
+/* ── Slider ──────────────────────────────────────────────────────────────── */
+
+.gs-slider .track {
+    -fx-background-color: #22223a;
+    -fx-border-color: #44447a;
+    -fx-border-radius: 3;
+    -fx-pref-height: 6;
+}
+.gs-slider .thumb {
+    -fx-background-color: #6688cc;
+    -fx-background-radius: 8;
+    -fx-pref-width: 18; -fx-pref-height: 18;
+    -fx-effect: null;
+}
+.gs-slider .thumb:hover { -fx-background-color: #7799dd; }
+
+/* ── Separator ───────────────────────────────────────────────────────────── */
+
+.gs-rule { -fx-border-color: #44447a; -fx-padding: 4 0; }
+
+/* ── List view ───────────────────────────────────────────────────────────── */
+
+.gs-list {
+    -fx-background-color: #22223a;
+    -fx-border-color: #44447a;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-border-width: 1;
+}
+.gs-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e0e0e0;
+    -fx-padding: 5 12;
+}
+.gs-list .list-cell:filled:hover       { -fx-background-color: #2d2d50; }
+.gs-list .list-cell:filled:selected    { -fx-background-color: #4455aa; -fx-text-fill: white; }
+.gs-list .list-cell:filled:selected:hover { -fx-background-color: #5566bb; }
+
+/* ── Textarea ────────────────────────────────────────────────────────────── */
+
+.gs-textarea {
+    -fx-background-color: #22223a;
+    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #44447a;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-border-width: 1;
+    -fx-prompt-text-fill: #555577;
+}
+.gs-textarea:focused { -fx-border-color: #6688cc; }
+.gs-textarea .content { -fx-background-color: #22223a; }

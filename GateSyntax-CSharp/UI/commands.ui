@@ -1,0 +1,26 @@
+// commands.ui — Commands tab
+/CMD_COUNT :: 0\
+/CMD_DESTROY_EN :: FALSE\
+/CMD_LAST :: "(none)"\
+
+SCROLL CommandsScroll :: IN [TabCommands]
+COL CommandsCol :: IN [CommandsScroll] :: MARGIN "14"
+LABEL CommandsH1 :: IN [CommandsCol] :: TEXT "Commands" :: STYLE "H1"
+LABEL CommandsCaption :: IN [CommandsCol] :: TEXT "ICommand, click counters, conditional enable, CanExecute." :: STYLE "Caption"
+PANEL CmdCard1 :: IN [CommandsCol] :: STYLE "Card.Border"
+COL CmdCard1Col :: IN [CmdCard1]
+LABEL CmdH2 :: IN [CmdCard1Col] :: TEXT "ICommand from a ViewModel" :: STYLE "H2"
+ROW CmdRow1 :: IN [CmdCard1Col] :: MARGIN "0,4"
+BUTTON IncrBtn :: IN [CmdRow1] :: LABEL "Click counter" :: STYLE "PrimaryButton" :: ON CLICK /CMD_COUNT :: [CMD_COUNT] + 1\
+LABEL CmdCountLbl :: IN [CmdRow1] :: TEXT [CMD_COUNT] :: SIZE 20 :: WEIGHT "SemiBold" :: MARGIN "14,0,0,0"
+CHECK DestroyEnable :: IN [CmdCard1Col] :: LABEL "Enable destructive button" :: VALUE [CMD_DESTROY_EN] :: MARGIN "0,8" :: ON CHANGE /CMD_DESTROY_EN :: [DestroyEnable]\
+BUTTON DestroyBtn :: IN [CmdCard1Col] :: LABEL "Destroy everything" :: WIDTH 180 :: BG "#DC2626" :: COLOR "White" :: PADDING "10,4" :: ENABLED [CMD_DESTROY_EN] :: ON CLICK /CMD_COUNT :: 0\
+PANEL CmdCard2 :: IN [CommandsCol] :: STYLE "Card.Border"
+COL CmdCard2Col :: IN [CmdCard2]
+LABEL CmdH2b :: IN [CmdCard2Col] :: TEXT "ApplicationCommands" :: STYLE "H2"
+ROW CmdRow2 :: IN [CmdCard2Col]
+BUTTON CmdNew :: IN [CmdRow2] :: LABEL "New" :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /CMD_LAST :: "New"\
+BUTTON CmdOpen :: IN [CmdRow2] :: LABEL "Open" :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /CMD_LAST :: "Open"\
+BUTTON CmdSave :: IN [CmdRow2] :: LABEL "Save" :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /CMD_LAST :: "Save"\
+BUTTON CmdHelp :: IN [CmdRow2] :: LABEL "Help" :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /CMD_LAST :: "Help"\
+LABEL CmdLastLbl :: IN [CmdCard2Col] :: TEXT [CMD_LAST] :: MARGIN "0,6,0,0"

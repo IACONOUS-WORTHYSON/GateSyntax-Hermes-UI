@@ -1,0 +1,26 @@
+// custom.ui — Custom + DP tab
+/CPU_VAL :: 60\
+/MEM_VAL :: 45\
+/DISK_VAL :: 78\
+
+SCROLL CustomScroll :: IN [TabCustom]
+COL CustomCol :: IN [CustomScroll] :: MARGIN "14"
+LABEL CustomH1 :: IN [CustomCol] :: TEXT "Custom UserControl + DependencyProperties" :: STYLE "H1"
+LABEL CustomCaption :: IN [CustomCol] :: TEXT "A reusable RingGauge built with real DependencyProperties, plus an attached property for TextBox placeholders." :: STYLE "Caption"
+PANEL GaugeCard :: IN [CustomCol] :: STYLE "Card.Border"
+COL GaugeCardCol :: IN [GaugeCard]
+LABEL GaugeH2 :: IN [GaugeCardCol] :: TEXT "RingGauge (custom control)" :: STYLE "H2"
+ROW GaugeSliderRow :: IN [GaugeCardCol] :: MARGIN "0,4"
+SLIDER GaugeSlider :: IN [GaugeSliderRow] :: MIN 0 :: MAX 100 :: VALUE [CPU_VAL] :: WIDTH 240 :: ON CHANGE /CPU_VAL :: [GaugeSlider]\
+LABEL GaugeSliderLbl :: IN [GaugeSliderRow] :: TEXT [CPU_VAL] :: MARGIN "14,0,0,0"
+UNIFORMGRID GaugesUG :: IN [GaugeCardCol] :: COLS 3
+GAUGE GaugeCPU :: IN [GaugesUG] :: VALUE [CPU_VAL] :: MAX 100 :: GAGELABEL "CPU" :: STROKE "#3B82F6"
+GAUGE GaugeMEM :: IN [GaugesUG] :: VALUE [CPU_VAL] :: MAX 100 :: GAGELABEL "MEM" :: STROKE "#16A34A"
+GAUGE GaugeDISK :: IN [GaugesUG] :: VALUE [CPU_VAL] :: MAX 100 :: GAGELABEL "DISK" :: STROKE "#DC2626"
+PANEL PlaceholderCard :: IN [CustomCol] :: STYLE "Card.Border"
+COL PlaceholderCardCol :: IN [PlaceholderCard]
+LABEL PlaceholderH2 :: IN [PlaceholderCardCol] :: TEXT "Attached property: FormHelp.Placeholder" :: STYLE "H2"
+LABEL PlaceholderCaption :: IN [PlaceholderCardCol] :: TEXT "The greyed hint disappears as soon as you type." :: STYLE "Caption"
+INPUT PhInput1 :: IN [PlaceholderCardCol] :: HINT "Your full name" :: MARGIN "0,6" :: PADDING "6"
+INPUT PhInput2 :: IN [PlaceholderCardCol] :: HINT "email@example.com" :: MARGIN "0,6" :: PADDING "6"
+INPUT PhInput3 :: IN [PlaceholderCardCol] :: HINT "Address line 1" :: MARGIN "0,6" :: PADDING "6"

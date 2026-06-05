@@ -1,0 +1,27 @@
+// GateSyntax — main shell
+/APP_TITLE :: "GateSyntax — the definitive tour"\
+/STATUS_TEXT :: "Ready"\
+/PROGRESS :: 42\
+/NOW :: ""\
+
+WINDOW Root :: 1280 X 820 :: TITLE [APP_TITLE]
+DOCKPANEL RootDock :: IN [Root]
+ROW TitleBar :: IN [RootDock] :: DOCK "Top" :: HEIGHT 48 :: BG "#3B82F6"
+LABEL AppName :: IN [TitleBar] :: TEXT "GateSyntax" :: COLOR "White" :: SIZE 18 :: WEIGHT "SemiBold" :: MARGIN "14,8"
+LABEL AppSub :: IN [TitleBar] :: TEXT "every major WPF feature in 12 tabs" :: COLOR "#DCE4FF" :: SIZE 13 :: MARGIN "20,0,0,0"
+STATUSBAR StatusRow :: IN [RootDock] :: DOCK "Bottom" :: BG "#1E293B"
+STATUSITEM StatusTextItem :: IN [StatusRow]
+LABEL StatusLbl :: IN [StatusTextItem] :: TEXT [STATUS_TEXT] :: COLOR "White"
+TABS MainTabs :: IN [RootDock]
+TAB TabLayouts :: IN [MainTabs] :: LABEL "Layouts"
+TAB TabControls :: IN [MainTabs] :: LABEL "Controls"
+TAB TabBinding :: IN [MainTabs] :: LABEL "Data Binding"
+TAB TabCommands :: IN [MainTabs] :: LABEL "Commands"
+TAB TabStyles :: IN [MainTabs] :: LABEL "Styles"
+TAB TabAnimations :: IN [MainTabs] :: LABEL "Animations"
+TAB TabGraphics :: IN [MainTabs] :: LABEL "Graphics"
+TAB Tab3D :: IN [MainTabs] :: LABEL "3D"
+TAB TabDocuments :: IN [MainTabs] :: LABEL "Documents"
+TAB TabInput :: IN [MainTabs] :: LABEL "Input + Ink"
+TAB TabCustom :: IN [MainTabs] :: LABEL "Custom + DP"
+TAB TabDialogs :: IN [MainTabs] :: LABEL "Dialogs"

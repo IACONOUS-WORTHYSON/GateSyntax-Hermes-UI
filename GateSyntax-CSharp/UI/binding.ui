@@ -1,0 +1,34 @@
+// binding.ui — Data Binding tab
+/PERSON_NAME :: "Ada"\
+/PERSON_AGE :: 30\
+/PERSON_CITY :: "New York"\
+/PERSON_ACTIVE :: TRUE\
+
+SCROLL BindingScroll :: IN [TabBinding]
+COL BindingCol :: IN [BindingScroll] :: MARGIN "14"
+LABEL BindingH1 :: IN [BindingCol] :: TEXT "Data Binding" :: STYLE "H1"
+LABEL BindingCaption :: IN [BindingCol] :: TEXT "Two-way binding, live references, state slots." :: STYLE "Caption"
+PANEL PersonCard :: IN [BindingCol] :: STYLE "Card.Border"
+COL PersonCardCol :: IN [PersonCard]
+LABEL PersonH2 :: IN [PersonCardCol] :: TEXT "Two-way binding (Person)" :: STYLE "H2"
+ROW NameRow :: IN [PersonCardCol] :: MARGIN "0,4"
+LABEL NameLbl :: IN [NameRow] :: TEXT "Name:" :: WIDTH 100
+INPUT NameInput :: IN [NameRow] :: TEXT [PERSON_NAME] :: PADDING "6" :: ON CHANGE /PERSON_NAME :: [NameInput]\
+ROW AgeRow :: IN [PersonCardCol] :: MARGIN "0,4"
+LABEL AgeLbl :: IN [AgeRow] :: TEXT "Age:" :: WIDTH 100
+SLIDER AgeSlider :: IN [AgeRow] :: MIN 0 :: MAX 100 :: VALUE [PERSON_AGE] :: ON CHANGE /PERSON_AGE :: [AgeSlider]\
+ROW ActiveRow :: IN [PersonCardCol] :: MARGIN "0,4"
+LABEL ActiveLbl :: IN [ActiveRow] :: TEXT "Active:" :: WIDTH 100
+CHECK ActiveCheck :: IN [ActiveRow] :: LABEL "Currently active" :: VALUE [PERSON_ACTIVE] :: ON CHANGE /PERSON_ACTIVE :: [ActiveCheck]\
+PANEL LiveCard :: IN [PersonCardCol] :: BG "#F1F5F9" :: PADDING "8" :: MARGIN "0,8,0,0" :: CORNERRADIUS "4"
+COL LiveCardCol :: IN [LiveCard]
+LABEL LiveName :: IN [LiveCardCol] :: TEXT [PERSON_NAME] :: WEIGHT "SemiBold"
+LABEL LiveAge :: IN [LiveCardCol] :: TEXT [PERSON_AGE]
+LABEL LiveActive :: IN [LiveCardCol] :: TEXT [PERSON_ACTIVE]
+PANEL ProductCard :: IN [BindingCol] :: STYLE "Card.Border"
+COL ProductCardCol :: IN [ProductCard]
+LABEL ProductH2 :: IN [ProductCardCol] :: TEXT "Item List" :: STYLE "H2"
+LIST ProductList :: IN [ProductCardCol] :: HEIGHT 180
+ITEM Prod1 :: IN [ProductList] :: LABEL "Widget — $9.99 — stock: 12"
+ITEM Prod2 :: IN [ProductList] :: LABEL "Gizmo — $19.50 — stock: 0"
+ITEM Prod3 :: IN [ProductList] :: LABEL "Sprocket — $4.25 — stock: 200"

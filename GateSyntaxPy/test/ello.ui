@@ -1,0 +1,3 @@
+// hello.ui 
+
+WINDOW Root :: 100 X 100 :: TITLE "HERMES"

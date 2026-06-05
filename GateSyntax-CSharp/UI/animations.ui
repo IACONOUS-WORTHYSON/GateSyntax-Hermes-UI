@@ -1,0 +1,32 @@
+// animations.ui — Animations tab
+/ANIM_PULSE_RUNNING :: FALSE\
+/ANIM_SPIN_RUNNING :: FALSE\
+
+SCROLL AnimationsScroll :: IN [TabAnimations]
+COL AnimationsCol :: IN [AnimationsScroll] :: MARGIN "14"
+LABEL AnimationsH1 :: IN [AnimationsCol] :: TEXT "Animations" :: STYLE "H1"
+LABEL AnimationsCaption :: IN [AnimationsCol] :: TEXT "DoubleAnimation, ColorAnimation, RotateTransform animation, Keyframes with easing splines." :: STYLE "Caption"
+UNIFORMGRID AnimGrid :: IN [AnimationsCol] :: COLS 2
+PANEL PulseCard :: IN [AnimGrid] :: STYLE "Card.Border"
+COL PulseCardCol :: IN [PulseCard]
+LABEL PulseH2 :: IN [PulseCardCol] :: TEXT "DoubleAnimation (pulse)" :: STYLE "H2"
+LABEL PulseDesc :: IN [PulseCardCol] :: TEXT "A blue circle pulses continuously using DoubleAnimation on Width/Height." :: STYLE "Caption"
+CANVAS PulseCanvas :: IN [PulseCardCol] :: HEIGHT 160 :: BG "#F8FAFC"
+ELLIPSE PulseDot :: IN [PulseCanvas] :: WIDTH 60 :: HEIGHT 60 :: FILL "#3B82F6"
+PANEL ColorCard :: IN [AnimGrid] :: STYLE "Card.Border"
+COL ColorCardCol :: IN [ColorCard]
+LABEL ColorH2 :: IN [ColorCardCol] :: TEXT "ColorAnimation" :: STYLE "H2"
+PANEL ColorBox :: IN [ColorCardCol] :: HEIGHT 120 :: BG "#3B82F6" :: CORNERRADIUS "6"
+LABEL ColorBoxLbl :: IN [ColorBox] :: TEXT "ColorAnimation" :: COLOR "White" :: SIZE 20
+PANEL SpinCard :: IN [AnimGrid] :: STYLE "Card.Border"
+COL SpinCardCol :: IN [SpinCard]
+LABEL SpinH2 :: IN [SpinCardCol] :: TEXT "RotateTransform animation" :: STYLE "H2"
+LABEL SpinDesc :: IN [SpinCardCol] :: TEXT "A rectangle spins forever using RotateTransform DoubleAnimation." :: STYLE "Caption"
+CANVAS SpinCanvas :: IN [SpinCardCol] :: HEIGHT 160 :: BG "#F8FAFC"
+RECT SpinRect :: IN [SpinCanvas] :: WIDTH 80 :: HEIGHT 80 :: FILL "#3B82F6"
+PANEL KeyframeCard :: IN [AnimGrid] :: STYLE "Card.Border"
+COL KeyframeCardCol :: IN [KeyframeCard]
+LABEL KfH2 :: IN [KeyframeCardCol] :: TEXT "Keyframe animation (with spline easing)" :: STYLE "H2"
+LABEL KfDesc :: IN [KeyframeCardCol] :: TEXT "A pink circle moves across with spline easing keyframes." :: STYLE "Caption"
+CANVAS KfCanvas :: IN [KeyframeCardCol] :: HEIGHT 160 :: BG "#F1F5F9"
+ELLIPSE KfDot :: IN [KfCanvas] :: WIDTH 40 :: HEIGHT 40 :: FILL "#EC4899"

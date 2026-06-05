@@ -1,0 +1,43 @@
+// data.ui — list and data table demo
+/SELECTED_ITEM :: "none"\
+
+SCROLL DataScroll :: IN [TabData]
+COL    DataCol    :: IN [DataScroll]
+
+LABEL DataH1      :: IN [DataCol] :: TEXT "Data Widgets"  :: STYLE "h1"
+LABEL DataCaption :: IN [DataCol] :: TEXT "ListView with reactive selection tracking." :: STYLE "muted"
+
+RULE DataSep0 :: IN [DataCol]
+
+// ── ListView ──────────────────────────────────────────────────────────────────
+LABEL ListH2      :: IN [DataCol] :: TEXT "Language List" :: STYLE "h2"
+LABEL SelectedLbl :: IN [DataCol] :: TEXT "Selected: " + [SELECTED_ITEM]
+
+LIST LangList :: IN [DataCol] :: HEIGHT 12 :: ON CHANGE /SELECTED_ITEM :: [LangList]\
+ITEM ItemPython  :: IN [LangList] :: LABEL "Python"
+ITEM ItemRust    :: IN [LangList] :: LABEL "Rust"
+ITEM ItemGo      :: IN [LangList] :: LABEL "Go"
+ITEM ItemCSharp  :: IN [LangList] :: LABEL "C#"
+ITEM ItemHaskell :: IN [LangList] :: LABEL "Haskell"
+ITEM ItemElixir  :: IN [LangList] :: LABEL "Elixir"
+ITEM ItemZig     :: IN [LangList] :: LABEL "Zig"
+
+RULE DataSep1 :: IN [DataCol]
+
+// ── Multiple gauges ───────────────────────────────────────────────────────────
+LABEL GaugesH2 :: IN [DataCol] :: TEXT "Multi-Gauge Panel" :: STYLE "h2"
+
+/CPU_GAUGE  :: 72\
+/MEM_GAUGE  :: 45\
+/NET_GAUGE  :: 88\
+
+ROW GaugeRow :: IN [DataCol]
+GAUGE GaugeCpu :: IN [GaugeRow] :: VALUE [CPU_GAUGE] :: MAX 100 :: GAUGELABEL "CPU"    :: STROKE "bright_red"
+GAUGE GaugeMem :: IN [GaugeRow] :: VALUE [MEM_GAUGE] :: MAX 100 :: GAUGELABEL "Memory" :: STROKE "bright_yellow"
+GAUGE GaugeNet :: IN [GaugeRow] :: VALUE [NET_GAUGE] :: MAX 100 :: GAUGELABEL "Net"    :: STROKE "bright_green"
+
+ROW GaugeBtnRow :: IN [DataCol]
+BUTTON BtnCpuUp  :: IN [GaugeBtnRow] :: LABEL "CPU +"  :: ON CLICK /CPU_GAUGE :: [CPU_GAUGE] + 5\
+BUTTON BtnCpuDn  :: IN [GaugeBtnRow] :: LABEL "CPU −"  :: ON CLICK /CPU_GAUGE :: [CPU_GAUGE] + -5\
+BUTTON BtnMemUp  :: IN [GaugeBtnRow] :: LABEL "Mem +"  :: ON CLICK /MEM_GAUGE :: [MEM_GAUGE] + 5\
+BUTTON BtnMemDn  :: IN [GaugeBtnRow] :: LABEL "Mem −"  :: ON CLICK /MEM_GAUGE :: [MEM_GAUGE] + -5\

@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>GateSyntax.Integrador</AssemblyName>
+    <RootNamespace>GateSyntax</RootNamespace>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- NuGet metadata -->
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>GateSyntax.Integrador</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>GateSyntax</Authors>
+    <Description>
+      Domain-agnostic live-binding integrador for WPF applications.
+      Reflects on [GsExpose]-annotated members and opens a live GateSyntax
+      side-window that stays in sync with the host program at runtime.
+    </Description>
+    <PackageTags>gatesyntax;wpf;ui;live-binding;reflection</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Reference the WPF GateSyntax runtime -->
+    <ProjectReference Include="..\..\GateSyntax-CSharp\GateSyntax.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,49 @@
+// graphics.ui — Graphics tab
+SCROLL GraphicsScroll :: IN [TabGraphics]
+COL GraphicsCol :: IN [GraphicsScroll] :: MARGIN "14"
+LABEL GraphicsH1 :: IN [GraphicsCol] :: TEXT "Graphics" :: STYLE "H1"
+LABEL GraphicsCaption :: IN [GraphicsCol] :: TEXT "Shapes, brushes, transforms, effects, opacity masks, Path geometry." :: STYLE "Caption"
+UNIFORMGRID GraphicsGrid :: IN [GraphicsCol] :: COLS 2
+PANEL ShapesCard :: IN [GraphicsGrid] :: STYLE "Card.Border"
+COL ShapesCardCol :: IN [ShapesCard]
+LABEL ShapesH2 :: IN [ShapesCardCol] :: TEXT "Shapes" :: STYLE "H2"
+CANVAS ShapesCanvas :: IN [ShapesCardCol] :: HEIGHT 180 :: BG "#F8FAFC"
+RECT ShRect :: IN [ShapesCanvas] :: WIDTH 60 :: HEIGHT 40 :: FILL "#3B82F6"
+ELLIPSE ShEll :: IN [ShapesCanvas] :: WIDTH 60 :: HEIGHT 40 :: FILL "#10B981"
+LINE ShLine :: IN [ShapesCanvas] :: STROKE "#F59E0B"
+POLYGON ShPoly :: IN [ShapesCanvas] :: FILL "#A78BFA" :: STROKE "#5B21B6"
+PATH ShPath1 :: IN [ShapesCanvas] :: FILL "#06B6D4" :: STROKE "#0E7490"
+PATH ShStar :: IN [ShapesCanvas] :: FILL "#FBBF24" :: STROKE "Black"
+PANEL BrushesCard :: IN [GraphicsGrid] :: STYLE "Card.Border"
+COL BrushesCardCol :: IN [BrushesCard]
+LABEL BrushesH2 :: IN [BrushesCardCol] :: TEXT "Brushes" :: STYLE "H2"
+UNIFORMGRID BrushesUG :: IN [BrushesCardCol] :: COLS 2 :: ROWS 2
+PANEL SolidBrush :: IN [BrushesUG] :: BG "#3B82F6" :: MARGIN "3" :: HEIGHT 70
+LABEL SolidLbl :: IN [SolidBrush] :: TEXT "Solid" :: COLOR "White"
+PANEL LinearBrush :: IN [BrushesUG] :: BG "#6366F1" :: MARGIN "3" :: HEIGHT 70
+LABEL LinearLbl :: IN [LinearBrush] :: TEXT "Linear Gradient" :: COLOR "White"
+PANEL RadialBrush :: IN [BrushesUG] :: BG "#FBBF24" :: MARGIN "3" :: HEIGHT 70
+LABEL RadialLbl :: IN [RadialBrush] :: TEXT "Radial" :: COLOR "White"
+PANEL TileBrush :: IN [BrushesUG] :: BG "#0F172A" :: MARGIN "3" :: HEIGHT 70
+LABEL TileLbl :: IN [TileBrush] :: TEXT "Drawing (tile)" :: COLOR "White"
+PANEL EffectsCard :: IN [GraphicsGrid] :: STYLE "Card.Border"
+COL EffectsCardCol :: IN [EffectsCard]
+LABEL EffectsH2 :: IN [EffectsCardCol] :: TEXT "Effects" :: STYLE "H2"
+ROW EffectsRow :: IN [EffectsCardCol] :: HEIGHT 140
+PANEL DropShadowBox :: IN [EffectsRow] :: BG "#3B82F6" :: WIDTH 120 :: HEIGHT 80 :: CORNERRADIUS "8" :: MARGIN "6"
+LABEL DropShadowLbl :: IN [DropShadowBox] :: TEXT "DropShadow" :: COLOR "White" :: SIZE 14
+PANEL BlurBox :: IN [EffectsRow] :: BG "#6366F1" :: WIDTH 120 :: HEIGHT 80 :: CORNERRADIUS "8" :: MARGIN "6"
+LABEL BlurLbl :: IN [BlurBox] :: TEXT "BlurEffect" :: COLOR "White" :: SIZE 14
+PANEL TransCard :: IN [GraphicsGrid] :: STYLE "Card.Border"
+COL TransCardCol :: IN [TransCard]
+LABEL TransH2 :: IN [TransCardCol] :: TEXT "Transforms" :: STYLE "H2"
+UNIFORMGRID TransUG :: IN [TransCardCol] :: COLS 4 :: ROWS 1 :: HEIGHT 120
+RECT TrRotate :: IN [TransUG] :: WIDTH 60 :: HEIGHT 40 :: FILL "#3B82F6" :: MARGIN "6"
+RECT TrScale :: IN [TransUG] :: WIDTH 60 :: HEIGHT 40 :: FILL "#10B981" :: MARGIN "6"
+RECT TrSkew :: IN [TransUG] :: WIDTH 60 :: HEIGHT 40 :: FILL "#F59E0B" :: MARGIN "6"
+RECT TrCombo :: IN [TransUG] :: WIDTH 60 :: HEIGHT 40 :: FILL "#EC4899" :: MARGIN "6"
+PANEL OpacityCard :: IN [GraphicsGrid] :: STYLE "Card.Border"
+COL OpacityCardCol :: IN [OpacityCard]
+LABEL OpacityH2 :: IN [OpacityCardCol] :: TEXT "Opacity Mask (gradient cuts a border)" :: STYLE "H2"
+PANEL OpacityBox :: IN [OpacityCardCol] :: BG "#0EA5E9" :: WIDTH 380 :: HEIGHT 140
+LABEL OpacityLbl :: IN [OpacityBox] :: TEXT "Faded edges" :: COLOR "White" :: SIZE 22

@@ -1,0 +1,30 @@
+{
+  "name": "@gatesyntax/integrador",
+  "version": "1.0.0",
+  "description": "Domain-agnostic live-binding integrador for GateSyntax (TypeScript / DOM)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types":  "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist", "src"],
+  "scripts": {
+    "build":   "tsc",
+    "dev":     "tsc --watch"
+  },
+  "keywords": ["gatesyntax", "live-binding", "typescript", "dom", "integrador"],
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  },
+  "peerDependencies": {
+    "@gatesyntax/webb": "*"
+  },
+  "peerDependenciesMeta": {
+    "@gatesyntax/webb": { "optional": true }
+  }
+}

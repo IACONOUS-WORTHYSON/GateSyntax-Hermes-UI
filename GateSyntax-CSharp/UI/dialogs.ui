@@ -1,0 +1,42 @@
+// dialogs.ui — Dialogs tab
+/DIALOG_MSG_RESULT :: ""\
+/DIALOG_FILE_RESULT :: ""\
+/CLIP_TEXT :: "Edit this and copy to clipboard"\
+/ASYNC_STATUS :: ""\
+/ASYNC_PROGRESS :: 0\
+
+SCROLL DialogsScroll :: IN [TabDialogs]
+COL DialogsCol :: IN [DialogsScroll] :: MARGIN "14"
+LABEL DialogsH1 :: IN [DialogsCol] :: TEXT "Dialogs, Clipboard & Threading" :: STYLE "H1"
+LABEL DialogsCaption :: IN [DialogsCol] :: TEXT "MessageBox, OpenFileDialog, SaveFileDialog, PrintDialog, Clipboard, async/Dispatcher." :: STYLE "Caption"
+UNIFORMGRID DialogsGrid :: IN [DialogsCol] :: COLS 2
+PANEL MsgCard :: IN [DialogsGrid] :: STYLE "Card.Border"
+COL MsgCardCol :: IN [MsgCard]
+LABEL MsgH2 :: IN [MsgCardCol] :: TEXT "MessageBox" :: STYLE "H2"
+WRAPANEL MsgBtnWrap :: IN [MsgCardCol]
+BUTTON MsgInfoBtn :: IN [MsgBtnWrap] :: LABEL "Info" :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /DIALOG_MSG_RESULT :: "MSG_INFO"\
+BUTTON MsgWarnBtn :: IN [MsgBtnWrap] :: LABEL "Warn" :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /DIALOG_MSG_RESULT :: "MSG_WARN"\
+BUTTON MsgErrorBtn :: IN [MsgBtnWrap] :: LABEL "Error" :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /DIALOG_MSG_RESULT :: "MSG_ERROR"\
+BUTTON MsgConfirmBtn :: IN [MsgBtnWrap] :: LABEL "Confirm" :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /DIALOG_MSG_RESULT :: "MSG_CONFIRM"\
+LABEL MsgResultLbl :: IN [MsgCardCol] :: TEXT [DIALOG_MSG_RESULT] :: MARGIN "0,8,0,0" :: COLOR "#475569"
+PANEL FileCard :: IN [DialogsGrid] :: STYLE "Card.Border"
+COL FileCardCol :: IN [FileCard]
+LABEL FileH2 :: IN [FileCardCol] :: TEXT "File dialogs" :: STYLE "H2"
+WRAPANEL FileBtnWrap :: IN [FileCardCol]
+BUTTON FileOpenBtn :: IN [FileBtnWrap] :: LABEL "Open..." :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /DIALOG_FILE_RESULT :: "DIALOG_FILE"\
+BUTTON FileSaveBtn :: IN [FileBtnWrap] :: LABEL "Save..." :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /DIALOG_FILE_RESULT :: "DIALOG_SAVE"\
+LABEL FileResultLbl :: IN [FileCardCol] :: TEXT [DIALOG_FILE_RESULT] :: MARGIN "0,8,0,0" :: COLOR "#475569"
+PANEL ClipCard :: IN [DialogsGrid] :: STYLE "Card.Border"
+COL ClipCardCol :: IN [ClipCard]
+LABEL ClipH2 :: IN [ClipCardCol] :: TEXT "Clipboard" :: STYLE "H2"
+INPUT ClipInput :: IN [ClipCardCol] :: TEXT [CLIP_TEXT] :: PADDING "6" :: MARGIN "0,4" :: ON CHANGE /CLIP_TEXT :: [ClipInput]\
+ROW ClipBtnRow :: IN [ClipCardCol]
+BUTTON ClipCopyBtn :: IN [ClipBtnRow] :: LABEL "Copy" :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /CLIP_TEXT :: "CLIP_COPY"\
+BUTTON ClipPasteBtn :: IN [ClipBtnRow] :: LABEL "Paste" :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /CLIP_TEXT :: "CLIP_PASTE"\
+BUTTON ClipClearBtn :: IN [ClipBtnRow] :: LABEL "Clear" :: MARGIN "3" :: PADDING "10,4" :: ON CLICK /CLIP_TEXT :: ""\
+PANEL AsyncCard :: IN [DialogsGrid] :: STYLE "Card.Border"
+COL AsyncCardCol :: IN [AsyncCard]
+LABEL AsyncH2 :: IN [AsyncCardCol] :: TEXT "Async background work" :: STYLE "H2"
+BUTTON AsyncStartBtn :: IN [AsyncCardCol] :: LABEL "Start long task" :: STYLE "PrimaryButton" :: WIDTH 160 :: ON CLICK /ASYNC_STATUS :: "ASYNC_START"\
+PROGRESS AsyncBar :: IN [AsyncCardCol] :: HEIGHT 14 :: VALUE [ASYNC_PROGRESS] :: MIN 0 :: MAX 100 :: MARGIN "0,8"
+LABEL AsyncStatusLbl :: IN [AsyncCardCol] :: TEXT [ASYNC_STATUS] :: COLOR "#475569"

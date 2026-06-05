@@ -1,0 +1,9 @@
+// main.ui — app shell with tab structure
+/APP_TITLE :: "GateSyntaxPy-Qt  ·  GUI Demo"\
+
+WINDOW Root :: TITLE [APP_TITLE]
+TABS MainTabs :: IN [Root]
+TAB TabControls  :: IN [MainTabs] :: LABEL "Controls"
+TAB TabBinding   :: IN [MainTabs] :: LABEL "Binding"
+TAB TabCommands  :: IN [MainTabs] :: LABEL "Commands"
+TAB TabData      :: IN [MainTabs] :: LABEL "Data"

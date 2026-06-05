@@ -1,0 +1,120 @@
+/* GateSyntaxPy — Textual CSS theme */
+
+/* ── App shell ─────────────────────────────────────────────────────────────── */
+
+App {
+    background: $surface;
+}
+
+TabbedContent {
+    height: 1fr;
+}
+
+TabbedContent ContentSwitcher {
+    height: 1fr;
+}
+
+TabPane {
+    padding: 0;
+}
+
+/* ── Typography helpers (STYLE "h1", "h2", "muted") ──────────────────────── */
+
+.h1 {
+    text-style: bold;
+    color: $primary;
+    padding: 1 0 0 0;
+    margin: 0 0 1 0;
+}
+
+.h2 {
+    text-style: bold;
+    color: $accent;
+    margin: 1 0 0 0;
+}
+
+.muted {
+    color: $text-muted;
+    margin: 0 0 1 0;
+}
+
+/* ── Panel (PANEL noun → .gs-panel) ─────────────────────────────────────────── */
+
+.gs-panel {
+    border: round $primary-darken-2;
+    padding: 1 2;
+    margin: 1 0;
+    background: $surface-darken-1;
+}
+
+/* ── Containers ──────────────────────────────────────────────────────────────── */
+
+ScrollableContainer {
+    height: 1fr;
+    padding: 1 2;
+}
+
+Vertical {
+    height: auto;
+}
+
+Horizontal {
+    height: auto;
+}
+
+/* ── Controls ─────────────────────────────────────────────────────────────── */
+
+Button {
+    margin: 0 1 0 0;
+}
+
+Input {
+    margin: 0 0 1 0;
+}
+
+Checkbox {
+    margin: 0 0 1 0;
+}
+
+Switch {
+    margin: 0 0 1 0;
+}
+
+ProgressBar {
+    margin: 0 0 1 0;
+}
+
+Slider {
+    margin: 0 0 1 0;
+    width: 1fr;
+}
+
+Rule {
+    margin: 1 0;
+    color: $primary-darken-2;
+}
+
+Label {
+    margin: 0 0 0 0;
+}
+
+ListView {
+    border: round $primary-darken-2;
+    margin: 0 0 1 0;
+}
+
+/* ── Gauge ─────────────────────────────────────────────────────────────────── */
+
+GaugeWidget {
+    height: 3;
+    min-width: 30;
+    margin: 0 2 0 0;
+    padding: 0 1;
+}
+
+/* ── Grid layout ──────────────────────────────────────────────────────────── */
+
+Grid {
+    height: auto;
+    grid-gutter: 1 2;
+}

@@ -1,0 +1,88 @@
+// controls.ui
+SCROLL ControlsScroll :: IN [TabControls]
+COL ControlsCol :: IN [ControlsScroll] :: MARGIN "14"
+LABEL ControlsH1 :: IN [ControlsCol] :: TEXT "Controls" :: STYLE "H1"
+LABEL ControlsCaption :: IN [ControlsCol] :: TEXT "Every standard WPF control, laid out for easy comparison." :: STYLE "Caption"
+UNIFORMGRID ControlsGrid :: IN [ControlsCol] :: COLS 2
+PANEL BtnCard :: IN [ControlsGrid] :: STYLE "Card.Border"
+COL BtnCardCol :: IN [BtnCard]
+LABEL BtnH2 :: IN [BtnCardCol] :: TEXT "Buttons + ToggleButton" :: STYLE "H2"
+WRAPANEL BtnWrap :: IN [BtnCardCol]
+BUTTON BtnPlain :: IN [BtnWrap] :: LABEL "Plain" :: MARGIN "3" :: PADDING "10,4"
+BUTTON BtnPrimary :: IN [BtnWrap] :: LABEL "Primary" :: STYLE "PrimaryButton" :: MARGIN "3"
+BUTTON BtnDisabled :: IN [BtnWrap] :: LABEL "Disabled" :: ENABLED FALSE :: MARGIN "3" :: PADDING "10,4"
+TOGGLE TogBtn :: IN [BtnWrap] :: LABEL "Toggle" :: MARGIN "3" :: PADDING "10,4"
+REPEATBUTTON RepBtn :: IN [BtnWrap] :: LABEL "Repeat" :: MARGIN "3" :: PADDING "10,4"
+PANEL TextCard :: IN [ControlsGrid] :: STYLE "Card.Border"
+COL TextCardCol :: IN [TextCard]
+LABEL TextH2 :: IN [TextCardCol] :: TEXT "Text input" :: STYLE "H2"
+INPUT TextInput1 :: IN [TextCardCol] :: HINT "Type your name…" :: MARGIN "0,3" :: PADDING "6"
+PASSWORDBOX PwBox :: IN [TextCardCol] :: MARGIN "0,3" :: PADDING "6"
+INPUT TextMulti :: IN [TextCardCol] :: MULTILINE TRUE :: HEIGHT 60 :: TEXT "Multi-line TextBox with wrap." :: MARGIN "0,3" :: PADDING "6"
+PANEL CheckCard :: IN [ControlsGrid] :: STYLE "Card.Border"
+COL CheckCardCol :: IN [CheckCard]
+LABEL CheckH2 :: IN [CheckCardCol] :: TEXT "CheckBox + RadioButton" :: STYLE "H2"
+CHECK ChkEmail :: IN [CheckCardCol] :: LABEL "Send me emails" :: MARGIN "0,3"
+CHECK ChkNewsletter :: IN [CheckCardCol] :: LABEL "Subscribe to newsletter" :: VALUE TRUE :: MARGIN "0,3"
+SEPARATOR ChkSep :: IN [CheckCardCol] :: MARGIN "0,6"
+CHECK RadioSm :: IN [CheckCardCol] :: LABEL "Small" :: MARGIN "0,3"
+CHECK RadioMd :: IN [CheckCardCol] :: LABEL "Medium" :: VALUE TRUE :: MARGIN "0,3"
+CHECK RadioLg :: IN [CheckCardCol] :: LABEL "Large" :: MARGIN "0,3"
+PANEL ComboCard :: IN [ControlsGrid] :: STYLE "Card.Border"
+COL ComboCardCol :: IN [ComboCard]
+LABEL ComboH2 :: IN [ComboCardCol] :: TEXT "ComboBox + ListBox" :: STYLE "H2"
+COMBOBOX CbDemo :: IN [ComboCardCol] :: MARGIN "0,3"
+COMBOITEM CbApple :: IN [CbDemo] :: LABEL "Apple"
+COMBOITEM CbBanana :: IN [CbDemo] :: LABEL "Banana"
+COMBOITEM CbCherry :: IN [CbDemo] :: LABEL "Cherry"
+LIST LbDemo :: IN [ComboCardCol] :: HEIGHT 80 :: MARGIN "0,3"
+ITEM LbOne :: IN [LbDemo] :: LABEL "One"
+ITEM LbTwo :: IN [LbDemo] :: LABEL "Two"
+ITEM LbThree :: IN [LbDemo] :: LABEL "Three"
+ITEM LbFour :: IN [LbDemo] :: LABEL "Four"
+PANEL SliderCard :: IN [ControlsGrid] :: STYLE "Card.Border"
+COL SliderCardCol :: IN [SliderCard]
+LABEL SliderH2 :: IN [SliderCardCol] :: TEXT "Slider + ProgressBar" :: STYLE "H2"
+/SLIDER_VAL :: 40\
+SLIDER DemoSlider :: IN [SliderCardCol] :: MIN 0 :: MAX 100 :: VALUE [SLIDER_VAL] :: MARGIN "0,3" :: ON CHANGE /SLIDER_VAL :: [DemoSlider]\
+PROGRESS DemoProgress :: IN [SliderCardCol] :: HEIGHT 14 :: VALUE [SLIDER_VAL] :: MAX 100 :: MARGIN "0,3"
+PROGRESS DemoProgressInd :: IN [SliderCardCol] :: HEIGHT 14 :: INDETERMINATE TRUE :: MARGIN "0,3"
+PANEL TreeCard :: IN [ControlsGrid] :: STYLE "Card.Border"
+COL TreeCardCol :: IN [TreeCard]
+LABEL TreeH2 :: IN [TreeCardCol] :: TEXT "TreeView" :: STYLE "H2"
+TREEVIEW TreeDemo :: IN [TreeCardCol] :: HEIGHT 160
+TREEITEM TIAnimals :: IN [TreeDemo] :: LABEL "Animals"
+TREEITEM TIMammals :: IN [TIAnimals] :: LABEL "Mammals"
+TREEITEM TIDog :: IN [TIMammals] :: LABEL "Dog"
+TREEITEM TICat :: IN [TIMammals] :: LABEL "Cat"
+TREEITEM TIBirds :: IN [TIAnimals] :: LABEL "Birds"
+TREEITEM TISparrow :: IN [TIBirds] :: LABEL "Sparrow"
+TREEITEM TIPlants :: IN [TreeDemo] :: LABEL "Plants"
+TREEITEM TIOak :: IN [TIPlants] :: LABEL "Oak"
+TREEITEM TIPine :: IN [TIPlants] :: LABEL "Pine"
+PANEL GroupCard :: IN [ControlsGrid] :: STYLE "Card.Border"
+COL GroupCardCol :: IN [GroupCard]
+LABEL GroupH2 :: IN [GroupCardCol] :: TEXT "GroupBox + Expander" :: STYLE "H2"
+GROUPBOX GbDemo :: IN [GroupCardCol] :: LABEL "Group" :: MARGIN "0,3"
+LABEL GbContent :: IN [GbDemo] :: TEXT "Things inside a GroupBox." :: MARGIN "6"
+EXPANDER ExpDemo :: IN [GroupCardCol] :: LABEL "Expand me" :: MARGIN "0,3"
+LABEL ExpContent :: IN [ExpDemo] :: TEXT "Hidden until expanded." :: MARGIN "6"
+PANEL MenuCard :: IN [ControlsGrid] :: STYLE "Card.Border"
+COL MenuCardCol :: IN [MenuCard]
+LABEL MenuH2 :: IN [MenuCardCol] :: TEXT "ToolBar + Menu (nested)" :: STYLE "H2"
+TOOLBAR TbDemo :: IN [MenuCardCol] :: BG "#F1F5F9"
+BUTTON TbNew :: IN [TbDemo] :: LABEL "New"
+BUTTON TbOpen :: IN [TbDemo] :: LABEL "Open"
+SEPARATOR TbSep :: IN [TbDemo]
+TOGGLE TbBold :: IN [TbDemo] :: LABEL "Bold"
+TOGGLE TbItalic :: IN [TbDemo] :: LABEL "Italic"
+MENU MenuDemo :: IN [MenuCardCol] :: BG "#F1F5F9" :: MARGIN "0,3"
+MENUITEM MiFile :: IN [MenuDemo] :: LABEL "_File"
+MENUITEM MiNew :: IN [MiFile] :: LABEL "New"
+MENUITEM MiOpen :: IN [MiFile] :: LABEL "Open"
+SEPARATOR MiSep :: IN [MiFile]
+MENUITEM MiExit :: IN [MiFile] :: LABEL "Exit"
+MENUITEM MiEdit :: IN [MenuDemo] :: LABEL "_Edit"
+MENUITEM MiCut :: IN [MiEdit] :: LABEL "Cut"
+MENUITEM MiCopy :: IN [MiEdit] :: LABEL "Copy"
+MENUITEM MiPaste :: IN [MiEdit] :: LABEL "Paste"

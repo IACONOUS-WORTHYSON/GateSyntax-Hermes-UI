@@ -1,0 +1,7 @@
+// threed.ui — 3D tab
+SCROLL ThreeDScroll :: IN [Tab3D]
+COL ThreeDCol :: IN [ThreeDScroll] :: MARGIN "14"
+LABEL ThreeDH1 :: IN [ThreeDCol] :: TEXT "3D" :: STYLE "H1"
+LABEL ThreeDCaption :: IN [ThreeDCol] :: TEXT "Viewport3D with a rotating cube — Camera, lights, GeometryModel3D, DiffuseMaterial." :: STYLE "Caption"
+PANEL ThreeDCard :: IN [ThreeDCol] :: STYLE "Card.Border"
+VIEWPORT3D Viewport3dMain :: IN [ThreeDCard]

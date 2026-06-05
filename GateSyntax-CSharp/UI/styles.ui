@@ -1,0 +1,44 @@
+// styles.ui — Styles tab
+SCROLL StylesScroll :: IN [TabStyles]
+COL StylesCol :: IN [StylesScroll] :: MARGIN "14"
+LABEL StylesH1 :: IN [StylesCol] :: TEXT "Styles, Templates & Triggers" :: STYLE "H1"
+LABEL StylesCaption :: IN [StylesCol] :: TEXT "Style setters, property triggers, ControlTemplate, DataTemplate, BasedOn inheritance." :: STYLE "Caption"
+PANEL StyleCard1 :: IN [StylesCol] :: STYLE "Card.Border"
+COL StyleCard1Col :: IN [StyleCard1]
+LABEL StyleH2a :: IN [StyleCard1Col] :: TEXT "Property Trigger (hover)" :: STYLE "H2"
+UNIFORMGRID StyleUG :: IN [StyleCard1Col] :: COLS 3
+PANEL HoverA :: IN [StyleUG] :: BG "#E0E7FF" :: CORNERRADIUS "6" :: PADDING "14" :: MARGIN "4"
+LABEL HoverAL :: IN [HoverA] :: TEXT "Hover me"
+PANEL HoverB :: IN [StyleUG] :: BG "#E0E7FF" :: CORNERRADIUS "6" :: PADDING "14" :: MARGIN "4"
+LABEL HoverBL :: IN [HoverB] :: TEXT "Or me"
+PANEL HoverC :: IN [StyleUG] :: BG "#E0E7FF" :: CORNERRADIUS "6" :: PADDING "14" :: MARGIN "4"
+LABEL HoverCL :: IN [HoverC] :: TEXT "Or this one"
+PANEL StyleCard2 :: IN [StylesCol] :: STYLE "Card.Border"
+COL StyleCard2Col :: IN [StyleCard2]
+LABEL StyleH2b :: IN [StyleCard2Col] :: TEXT "ControlTemplate (re-skinned Button)" :: STYLE "H2"
+WRAPANEL PillWrap :: IN [StyleCard2Col]
+BUTTON PillPrimary :: IN [PillWrap] :: LABEL "Primary" :: STYLE "PrimaryButton" :: MARGIN "3"
+BUTTON PillSuccess :: IN [PillWrap] :: LABEL "Success" :: BG "#10B981" :: COLOR "White" :: MARGIN "3" :: PADDING "20,8"
+BUTTON PillWarning :: IN [PillWrap] :: LABEL "Warning" :: BG "#F59E0B" :: COLOR "White" :: MARGIN "3" :: PADDING "20,8"
+BUTTON PillDanger :: IN [PillWrap] :: LABEL "Danger" :: BG "#DC2626" :: COLOR "White" :: MARGIN "3" :: PADDING "20,8"
+PANEL StyleCard3 :: IN [StylesCol] :: STYLE "Card.Border"
+COL StyleCard3Col :: IN [StyleCard3]
+LABEL StyleH2c :: IN [StyleCard3Col] :: TEXT "People DataTemplate (ItemsControl)" :: STYLE "H2"
+PANEL PersonRow1 :: IN [StyleCard3Col] :: BG "#F8FAFC" :: CORNERRADIUS "4" :: PADDING "8" :: MARGIN "2"
+ROW PR1Row :: IN [PersonRow1]
+ELLIPSE PR1Icon :: IN [PR1Row] :: WIDTH 28 :: HEIGHT 28 :: FILL "#3B82F6"
+COL PR1Info :: IN [PR1Row] :: MARGIN "10,0"
+LABEL PR1Name :: IN [PR1Info] :: TEXT "Ada Lovelace" :: WEIGHT "SemiBold"
+LABEL PR1Detail :: IN [PR1Info] :: TEXT "36 years old in London" :: COLOR "#64748B" :: SIZE 11
+PANEL PersonRow2 :: IN [StyleCard3Col] :: BG "#F8FAFC" :: CORNERRADIUS "4" :: PADDING "8" :: MARGIN "2"
+ROW PR2Row :: IN [PersonRow2]
+ELLIPSE PR2Icon :: IN [PR2Row] :: WIDTH 28 :: HEIGHT 28 :: FILL "#3B82F6"
+COL PR2Info :: IN [PR2Row] :: MARGIN "10,0"
+LABEL PR2Name :: IN [PR2Info] :: TEXT "Alan Turing" :: WEIGHT "SemiBold"
+LABEL PR2Detail :: IN [PR2Info] :: TEXT "41 years old in Cambridge" :: COLOR "#64748B" :: SIZE 11
+PANEL PersonRow3 :: IN [StyleCard3Col] :: BG "#F8FAFC" :: CORNERRADIUS "4" :: PADDING "8" :: MARGIN "2"
+ROW PR3Row :: IN [PersonRow3]
+ELLIPSE PR3Icon :: IN [PR3Row] :: WIDTH 28 :: HEIGHT 28 :: FILL "#3B82F6"
+COL PR3Info :: IN [PR3Row] :: MARGIN "10,0"
+LABEL PR3Name :: IN [PR3Info] :: TEXT "Grace Hopper" :: WEIGHT "SemiBold"
+LABEL PR3Detail :: IN [PR3Info] :: TEXT "85 years old in Arlington" :: COLOR "#64748B" :: SIZE 11
